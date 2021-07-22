@@ -1,0 +1,17 @@
+.Layout{
+    height:100vh;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(45deg, #1d2699, #9445c9);
+    margin: 0;
+}
+.Layout main{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body{
+    padding: 0;
+    margin: 0;
+}

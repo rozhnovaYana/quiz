@@ -1,0 +1,13 @@
+.AnswerItem{
+    width: 80%;
+    padding: 10px 15px;
+    border: 1px solid white;
+    cursor: pointer;
+    transition: 0.3s background-color ease-in-out;
+    margin: 10px 0;
+    font-size: 18px;
+    width: 100%
+}
+.AnswerItem:hover{
+    background-color:rgb(39, 0, 168)
+}
