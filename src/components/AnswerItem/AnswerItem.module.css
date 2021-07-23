@@ -11,3 +11,9 @@
 .AnswerItem:hover{
     background-color:rgb(39, 0, 168)
 }
+.AnswerItem.succes{
+    background-color: rgb(133, 221, 133)
+}
+.AnswerItem.error{
+    background-color: rgb(190, 94, 94)
+}

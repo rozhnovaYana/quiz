@@ -1,9 +1,17 @@
 import React from "react"
 import classes from "./AnswerItem.module.css"
 const AnswerItem=(props)=>{
+    const cls=[classes.AnswerItem],
+    {status, answer,onActiveQuizHandler}=props;
+    if(status){
+        cls.push(classes[status])
+    }
     return(
-        <div className={classes.AnswerItem}>
-            {props.answer}
+        <div 
+            className={cls.join(" ")}
+            onClick={()=>onActiveQuizHandler(answer.id)}
+        >
+            {answer.text}
         </div>
     )
 }
