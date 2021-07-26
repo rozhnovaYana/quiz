@@ -1,0 +1,43 @@
+.Finish{
+    font-size: 24px;
+    width: 300px;
+    height: 50%;
+    border: solid 3px white;
+    border-radius: 10px;
+    padding: 30px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+.Finish ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.Finish ul li{
+    margin: 10px 0;
+
+}
+.Finish button{
+    background: linear-gradient(45deg, #1d2699, #9445c9);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: solid 1px white;
+    cursor: pointer;
+    transition: 0.5s opacity;
+    width:50%;
+    margin: 20px auto 0;
+}
+.Finish button:hover{
+    opacity: 0.5;
+}
+.error{
+    color: pink;
+    margin-left: 10px;
+}
+.check{
+    color: greenyellow;
+    margin-left: 10px;
+}

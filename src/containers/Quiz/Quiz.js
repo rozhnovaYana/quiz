@@ -1,10 +1,13 @@
 import React, {Component } from "react";
 import ActiveQuiz from "../../components/ActiveQuiz";
+import Finish from "../../components/Finish";
 import classes from "./Quiz.module.css"
+
 
 class Quiz extends Component{
     state={
         activeQuiz:0,
+        isFinished:true,
         status:null,
         quiz:[
             {
@@ -74,7 +77,9 @@ class Quiz extends Component{
                     window.clearInterval(timeOut)
                 }, 1000)
             }else{
-                console.log("Finish")
+                this.setState({
+                    isFinished:true
+                })
             }
             this.setState({
                 status:{
@@ -91,17 +96,18 @@ class Quiz extends Component{
         }
     }
     render(){
-        const {activeQuiz, quiz, status}=this.state;
+        const {activeQuiz, quiz, status,isFinished}=this.state;
         return(
             <div className={classes.Quiz}>
-                <ActiveQuiz 
+                {isFinished? <Finish/>:
+                    <ActiveQuiz 
                     question={quiz[activeQuiz].question}
                     answers={quiz[activeQuiz].answers}
                     onActiveQuizHandler={this.onActiveQuizHandler}
                     status={status}
                     activeQuiz={activeQuiz+1}
                     quizLenght={quiz.length}
-                />
+                />}
             </div>
         )
     }
