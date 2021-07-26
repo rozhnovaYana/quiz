@@ -7,7 +7,8 @@ import classes from "./Quiz.module.css"
 class Quiz extends Component{
     state={
         activeQuiz:0,
-        isFinished:true,
+        rezults:{},
+        isFinished:false,
         status:null,
         quiz:[
             {
@@ -26,17 +27,31 @@ class Quiz extends Component{
                 ]
                 
             },{
-                question:"Кто является автором 'Время жить и время умирать'",
-                succes:3,
+                question:"В каком году отменили крепостное право?",
+                succes:2,
                 answers:[
                     {
-                        text:"Дюма", id:1
+                        text:"1816", id:1
                     },
                     {
-                        text:"Диккенс", id:2
+                        text:"1861", id:2
                     },
                     {
-                        text:"Ремарк", id:3
+                        text:"1865", id:3
+                    }
+                ]
+            },{
+                question:"Кто является автором 'Американской трагедии'",
+                succes: 3,
+                answers:[
+                    {
+                        text:"Лондон", id:1
+                    },
+                    {
+                        text:"Стейнбек", id:2
+                    },
+                    {
+                        text:"Драйзер", id:3
                     }
                 ]
             },{
@@ -56,8 +71,16 @@ class Quiz extends Component{
             }
         ]
     }
+    onReplay=()=>{
+        this.setState({
+            activeQuiz:0,
+            rezults:{},
+            isFinished:false,
+            status:null,
+        })
+    }
     onActiveQuizHandler=(answerId)=>{
-        const {activeQuiz, quiz, status}=this.state;
+        const {activeQuiz, quiz, status, rezults}=this.state;
         const succesId=quiz[activeQuiz].succes;
         if(status){
             const key=Object.keys(status)[0];
@@ -66,6 +89,14 @@ class Quiz extends Component{
             }
         }
         if(answerId===succesId){
+            if(!rezults[activeQuiz]){
+                this.setState({
+                    rezults:{
+                        ...rezults, [activeQuiz]:"check"
+                    }
+                    
+                })
+            }
             if(activeQuiz+1<quiz.length){
                 const timeOut=window.setTimeout(()=>{
                     this.setState(state=>{
@@ -91,15 +122,23 @@ class Quiz extends Component{
             this.setState({
                 status:{
                     [answerId]:"error"
+                },
+                rezults:{
+                    ...rezults, [activeQuiz]:"error"
                 }
+                
             })
         }
     }
     render(){
-        const {activeQuiz, quiz, status,isFinished}=this.state;
+        const {activeQuiz, quiz, status,isFinished,rezults}=this.state;
         return(
             <div className={classes.Quiz}>
-                {isFinished? <Finish/>:
+                {isFinished? <Finish 
+                    rezults={rezults}
+                    quiz={quiz}
+                    onReplay={this.onReplay}
+                    />:
                     <ActiveQuiz 
                     question={quiz[activeQuiz].question}
                     answers={quiz[activeQuiz].answers}
