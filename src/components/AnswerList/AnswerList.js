@@ -5,7 +5,7 @@ const AnswerList=({answers, onActiveQuizHandler, status})=>{
     let maxKey=100;
     const answersList=answers.map((answer)=>{
         return(
-            <li key={Math.random*maxKey++}>
+            <li key={Math.random()*maxKey++}>
                <AnswerItem 
                     answer={answer}
                     onActiveQuizHandler={onActiveQuizHandler}

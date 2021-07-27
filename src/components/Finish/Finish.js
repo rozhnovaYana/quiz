@@ -2,6 +2,7 @@ import React from "react"
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import classes from "./Finish.module.css"
+import Button from "../UI/Button/Button";
 const Finish=({quiz, rezults, onReplay})=>{
     let maxKey=100;
     const rezultsLength=quiz.length;
@@ -28,7 +29,7 @@ const Finish=({quiz, rezults, onReplay})=>{
                 {quizList}
             </ul>
             <div>Твой результат <strong>{succes}/{rezultsLength}</strong></div>
-            <button onClick={onReplay}>Повторить</button>
+            <Button onClick={onReplay} type="primary">Повторить</Button>
         </div>
     )
 }

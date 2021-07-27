@@ -1,0 +1,18 @@
+.Button{
+        color: white;
+        padding: 10px 20px;
+        border-radius: 10px;
+        border: solid 1px white;
+        cursor: pointer;
+        transition: 0.5s opacity;
+        width:50%;
+        margin: 20px auto 0;
+}
+.Button:hover{
+    opacity: 0.5;
+}
+.primary{
+    background: linear-gradient(45deg, #1d2699, #9445c9);
+}
+        
+    
