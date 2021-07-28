@@ -1,0 +1,16 @@
+.NavigationIcon{
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    font-size: 24px;
+    color: white;
+    opacity: 1;
+    transition: 0.5s all;
+    cursor: pointer;
+}
+.NavigationIcon:hover{
+    opacity: 0.8;
+}
+.active{
+    left: 350px;
+}
