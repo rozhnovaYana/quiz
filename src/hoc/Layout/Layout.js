@@ -15,11 +15,12 @@ class Layout extends Component{
         })
     }
 
+
     render(){
         const {isActive}=this.state
         return (
             <div className={classes.Layout}>
-                <Drawer isOpen={isActive}/>
+                <Drawer isOpen={isActive} wrapperOnClick={this.onMenuClick}/>
                 <NavigationIcon isActive={isActive} onMenuClick={this.onMenuClick}/>
                 <main>
                     {this.props.children}
